@@ -1,0 +1,48 @@
+teams:
+
+DROP TABLE IF EXISTS teams CASCADE;
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+
+CREATE TABLE teams (
+    teams_id uuid DEFAULT uuid_generate_v4(),
+	teams_name VARCHAR,
+	team_player_number INT,
+	PRIMARY KEY (teams_id));
+							
+
+Isert into teams:
+INSERT INTO teams(teams_name, team_player_number)
+VALUES ('open', 20);
+
+GET / VIEW
+SELECT * FROM teams
+
+
+GamePoint TABLE
+
+DROP TABLE IF EXISTS gamePoint CASCADE; 
+
+CREATE TABLE gamePoint (
+    
+    game_id uuid DEFAULT uuid_generate_v4(),
+	PRIMARY KEY (game_id),
+);
+
+ALTER TABLE gamePoint
+ADD COLUMN team_offense VARCHAR,
+ADD COLUMN team_defense VARCHAR,	
+ADD COLUMN player_action VARCHAR, 
+ADD COLUMN player_offense_a VARCHAR,
+ADD COLUMN Player_offense_b VARCHAR,
+ADD COLUMN player_defense VARCHAR,
+ADD COLUMN player_offense_a_position NUMBER,
+ADD COLUMN Player_offense_b_position NUMBER,
+ADD COLUMN player_defense_position NUMBER,
+ADD COLUMN pass_type VARCHAR,
+ADD COLUMN catch_type VARCHAR,
+ADD COLUMN defense_type VARCHAR,
+ADD COLUMN play_start_point FLOAT,
+ADD COLUMN pass_distance FLOAT,
+ADD COLUMN score BOOLEAN,
+ADD COLUMN turnover BOOLEAN;

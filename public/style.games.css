@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  color: black;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+/*Field section*/
+.field {
+  padding-top: 10px;
+  display: flex;
+  padding-left: 10px;
+}
+
+.field_selector {
+  width: 100px;
+}
+.field_selector:hover {
+  font-size: 20px;
+}
+
+.split {
+  height: 80vh;
+  bottom: 0;
+  width: 50%;
+  position: fixed;
+  overflow-x: hidden;
+}
+
+.left {
+  background-color: black !important;
+  display: inline-block;
+}
+
+.img {
+  opacity: 20%;
+}
+
+.right {
+  right: 0;
+  background-color: red;
+}
+
+.field_class {
+  padding-top: 20px;
+  text-align: center;
+}
+
+canvas {
+  /* for display purposes */
+  border: 4px solid #e99d2b;
+  display: inline-block;
+}
+
+.centered {
+  position: absolute;
+  top: 60%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered img {
+  width: 70vh;
+  transform: rotate(90deg);
+  opacity: 20%;
+}
