@@ -15,7 +15,7 @@ const getTeams = async (req, res) => {
     await res.status(200).json(response.rows);
     console.log(`200 GET sent correctly...`);
   } catch (error) {
-    console.error(`Something went wrong :( ${error}`);
+    console.error(`Something went wrong in getTeams :( ${error}`);
   }
 };
 
@@ -30,7 +30,7 @@ const addTeam = async (req, res) => {
     await res.status(200).json(response.rows);
     console.log(`200 POST sent correctly...`);
   } catch (error) {
-    console.error(`Something went wrong :( ${error}`);
+    console.error(`Something went wrong in addTeam :( ${error}`);
   }
 };
 
@@ -44,7 +44,7 @@ const getTeamsById = async (req, res) => {
     console.log(`displaying teams by id`);
     await res.status(200).json(response.rows);
   } catch (error) {
-    console.error(`Something went wrong :( ${error}`);
+    console.error(`Something went wrong getTeamsById :( ${error}`);
   }
 };
 
@@ -58,7 +58,7 @@ const deleteTeam = async (req, res) => {
     console.log(`team ${teamName} has been deleted succesfully`);
     await res.status(200).json(response.rows);
   } catch (error) {
-    console.error(`Something went wrong :( ${error}`);
+    console.error(`Something went wrong in deleteTeam :( ${error}`);
   }
 };
 
@@ -75,7 +75,7 @@ const updateTeam = async (req, res) => {
     );
     await res.status(200).json(response.rows);
   } catch (error) {
-    console.error(`Something went wrong :( ${error}`);
+    console.error(`Something went wrong in updateTeam :( ${error}`);
   }
 };
 

@@ -7,16 +7,16 @@
     <link rel="icon" href="/favicon.ico" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="style.games.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>UltiStats</title>
   </head>
   <body>
     <div class="topnav">
-      <a class="active" href="index.html">Home</a>
-      <a href="teams.index.html">Teams</a>
+      <a class="active" href="../index.html">Home</a>
+      <a href="../teams_/teams.index.html">Teams</a>
       <a href="games.index.html">Games</a>
-      <a href="stats.index.html">Stats</a>
-      <a href="tournaments.index.html">Tournaments</a>
+      <a href="../stats_/stats.index.html">Stats</a>
+      <a href="../tournaments_/tournaments.index.html">Tournaments</a>
     </div>
     <h1>Games entry.. :)</h1>
     <div id="field" class="field">
@@ -25,9 +25,13 @@
     </div>
     <div id="field_area" class="split left">
       <div class="field_class">
-        <canvas class="field_endzone" width="300" height="120"></canvas><br />
-        <canvas class="field_middle" width="300" height="350"></canvas><br />
-        <canvas class="field_endzone2" width="300" height="120"></canvas>
+        <canvas
+          onclick="passDistance(event)"
+          class="field_middle"
+          width="300"
+          height="620"
+        ></canvas
+        ><br />
       </div>
     </div>
 
@@ -38,5 +42,5 @@
       </div>
     </div>
   </body>
-  <script src="./game.script.js"></script>
+  <script src="./script.js"></script>
 </html>
