@@ -7,3 +7,6 @@ CREATE TABLE teams (
 	teams_name VARCHAR,
 	team_player_number INT,
 	PRIMARY KEY (teams_id));
+
+INSERT INTO teams(teams_name, team_player_number)
+VALUES ( $1 , $2);

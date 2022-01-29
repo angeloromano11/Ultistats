@@ -1,30 +1,31 @@
 DROP TABLE IF EXISTS games CASCADE;
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-
 CREATE TABLE games (
     game_id uuid DEFAULT uuid_generate_v4(),
-	team_offense REFERENCES teams (teams_name),
-	team_defense REFERENCES teams (teams_name),	
-	player_action VARCHAR,
-	player_offense_a REFERENCES players (player_id)
-	Player_offense_b REFERENCES players (player_id)
-	player_defense VARCHAR,
-	player_offense_a_position FLOAT,
-	Player_offense_b_position FLOAT,
-	player_defense_position FLOAT,
-	pass_type VARCHAR,
-	catch_type VARCHAR,
-	defense_type VARCHAR,
-	play_start_point FLOAT,
-	pass_distance FLOAT,
-    assistance INT,
-    player_assistance VARCHAR,
-	score BOOLEAN,
-    player_goal VARCHAR,
-	total_score INT,
-	turnover BOOLEAN,
+    play_id uuid REFERENCES plays (play_id),
+	teams_id uuid REFERENCES teams (teams_id),
+    game_point_number INT,
+    tournament VARCHAR,
+    wind VARCHAR,
+    surface VARCHAR,
+	teams_name VARCHAR,
+	point_1_team INT,
+    point_2_team INT,
+    point_3_team INT,
+    point_4_team INT,
+    point_5_team INT,
+    point_6_team INT,
+    point_7_team INT,
+    point_8_team INT,
+    point_9_team INT,
+    point_10_team INT,
+    point_11_team INT,
+    point_12_team INT,
+    point_13_team INT,
+    point_14_team INT,
+    point_15_team INT,
+    point_16_team INT,
+    point_17_team INT,
+    total_score_team_ INT,
 	PRIMARY KEY (game_id));
-							
-							
-							
