@@ -7,7 +7,15 @@ const {
   getTeamsById,
   deleteTeam,
   updateTeam,
-} = require('../controllers/index.controllers');
+} = require('../controllers/index.teams.controllers');
+
+const {
+  addGame,
+  getGames,
+  getGameById,
+  deleteGame,
+  updateGame,
+} = require('../controllers/index.games.controllers');
 
 router.get('/teams', getTeams);
 router.get('/teams/:teams_id', getTeamsById);
@@ -15,12 +23,12 @@ router.post('/teams', addTeam);
 router.delete('/teams', deleteTeam);
 router.put('/teams/:teams_id', updateTeam);
 
-// //games routes
-// router.get('/games', getGames);
-// router.get('/games/:game_id', getGameById);
-// router.post('/games', addGame);
-// router.delete('/games', deleteGame);
-// router.put('/games/:game_id', updateGame);
+//games routes
+router.get('/games', getGames);
+router.get('/games/:game_id', getGameById);
+router.post('/games', addGame);
+router.delete('/games', deleteGame);
+router.put('/games/:game_id', updateGame);
 
 // //player routes
 // router.get('/player', getPlayers);

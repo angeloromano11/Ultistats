@@ -19,3 +19,6 @@ CREATE TABLE plays (
 	pass_completed BOOLEAN,
 	turnover BOOLEAN,
 	PRIMARY KEY (play_id));
+
+INSERT INTO plays(game_id, teams_id, player_id, game_point_number, player_action,	player_position, pass_type, catch_type, defense_type, pass_distance, assistance, score,	total_score, pass_completed, turnover)
+VALUES ( $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15);

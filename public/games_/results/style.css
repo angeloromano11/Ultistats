@@ -58,7 +58,7 @@ body {
 
 .right {
   right: 0;
-  background-color: rgb(218, 216, 216);
+  background-color: red;
 }
 
 .field_class {
@@ -68,7 +68,6 @@ body {
 
 canvas {
   /* for display purposes */
-  border: 4px solid #e99d2b;
   display: inline-block;
 }
 
