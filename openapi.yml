@@ -1,0 +1,147 @@
+openapi: 3.0.0
+info:
+  title: Ultistat API
+  description: Documentation for the Ultistats API.
+  version: 0.1.9
+servers:
+  - url: http://localhost:3000/
+    description: Optional server description, e.g. Main (production) server
+  - url: http://staging-api.example.com
+    description: Optional server description, e.g. Internal staging server for testing
+tags:
+  - name: Teams
+  - name: Games
+
+paths:
+  /team:
+    get:
+      summary: Returns a user by ID.
+      tags:
+        - Teams
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  teams_id:
+                    type: string
+                  teams_name:
+                    type: string
+                  team_player_number:
+                    type: integer
+
+  /teams/{teams_id}:
+    get:
+      summary: Returns a user by ID.
+      tags:
+        - Teams
+      parameters:
+        - in: path
+          name: teams_id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  teams_id:
+                    type: string
+                  teams_name:
+                    type: string
+                  team_player_number:
+                    type: integer
+
+        '400':
+          description: The specified user ID is invalid (not a number).
+        '404':
+          description: A user with the specified ID was not found.
+        default:
+          description: Unexpected error
+
+  /teams:
+    post:
+      summary: Creates a team.
+      tags:
+        - Teams
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                teams_name:
+                  type: string
+                team_player_number:
+                  type: integer
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: The specified user ID is invalid (not a number).
+        '404':
+          description: A user with the specified ID was not found.
+        default:
+          description: Unexpected error
+
+  /teams-delete/{teams_id}:
+    delete:
+      summary: Returns a user by ID.
+      tags:
+        - Teams
+      parameters:
+        - in: path
+          name: teams_id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Team deleted.
+        '400':
+          description: The specified user ID is invalid (not a number).
+        '404':
+          description: A user with the specified ID was not found.
+        default:
+          description: Unexpected error
+
+  /teams-update/{teams_id}:
+    put:
+      summary: Returns a user by ID.
+      tags:
+        - Teams
+      parameters:
+        - in: path
+          name: teams_id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  teams_id:
+                    type: string
+                  teams_name:
+                    type: string
+                  team_player_number:
+                    type: integer
+
+        '400':
+          description: The specified user ID is invalid (not a number).
+        '404':
+          description: A user with the specified ID was not found.
+        default:
+          description: Unexpected error
