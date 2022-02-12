@@ -13,7 +13,7 @@ tags:
   - name: Games
 
 paths:
-  /team:
+  /teams:
     get:
       summary: Returns a user by ID.
       tags:
@@ -66,7 +66,7 @@ paths:
         default:
           description: Unexpected error
 
-  /teams:
+  /addteams:
     post:
       summary: Creates a team.
       tags:
@@ -92,7 +92,7 @@ paths:
         default:
           description: Unexpected error
 
-  /teams-delete/{teams_id}:
+  /deleteteams/{teams_id}:
     delete:
       summary: Returns a user by ID.
       tags:
@@ -113,7 +113,7 @@ paths:
         default:
           description: Unexpected error
 
-  /teams-update/{teams_id}:
+  /updateteams/{teams_id}:
     put:
       summary: Returns a user by ID.
       tags:
@@ -121,6 +121,179 @@ paths:
       parameters:
         - in: path
           name: teams_id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  teams_id:
+                    type: string
+                  teams_name:
+                    type: string
+                  team_player_number:
+                    type: integer
+
+        '400':
+          description: The specified user ID is invalid (not a number).
+        '404':
+          description: A user with the specified ID was not found.
+        default:
+          description: Unexpected error
+
+  /games:
+    get:
+      summary: Returns a user by ID.
+      tags:
+        - Games
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  teams_id:
+                    type: string
+                  teams_name:
+                    type: string
+                  team_player_number:
+                    type: integer
+
+  /games/{game_id}:
+    get:
+      summary: Returns a user by ID.
+      tags:
+        - Games
+      parameters:
+        - in: path
+          name: game_id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  teams_id:
+                    type: string
+                  teams_name:
+                    type: string
+                  team_player_number:
+                    type: integer
+
+        '400':
+          description: The specified user ID is invalid (not a number).
+        '404':
+          description: A user with the specified ID was not found.
+        default:
+          description: Unexpected error
+
+  /addgames:
+    post:
+      summary: Creates a team.
+      tags:
+        - Games
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                game_point_number:
+                  type: integer
+                tournament:
+                  type: string
+                wind:
+                  type: string
+                surface:
+                  type: string
+                teams_name:
+                  type: string
+                game_date:
+                  type: string
+                point_1_team:
+                  type: integer
+                point_2_team:
+                  type: integer
+                point_3_team:
+                  type: integer
+                point_4_team:
+                  type: integer
+                point_5_team:
+                  type: integer
+                point_6_team:
+                  type: integer
+                point_7_team:
+                  type: integer
+                point_8_team:
+                  type: integer
+                point_9_team:
+                  type: integer
+                point_10_team:
+                  type: integer
+                point_11_team:
+                  type: integer
+                point_12_team:
+                  type: integer
+                point_13_team:
+                  type: integer
+                point_14_team:
+                  type: integer
+                point_15_team:
+                  type: integer
+                total_score_team_:
+                  type: integer
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: The specified user ID is invalid (not a number).
+        '404':
+          description: A user with the specified ID was not found.
+        default:
+          description: Unexpected error
+
+  /deletegames/{game_id}:
+    delete:
+      summary: Returns a user by ID.
+      tags:
+        - Games
+      parameters:
+        - in: path
+          name: game_id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Team deleted.
+        '400':
+          description: The specified user ID is invalid (not a number).
+        '404':
+          description: A user with the specified ID was not found.
+        default:
+          description: Unexpected error
+
+  /updategames/{game_id}:
+    put:
+      summary: Returns a user by ID.
+      tags:
+        - Games
+      parameters:
+        - in: path
+          name: game_id
           required: true
           schema:
             type: string

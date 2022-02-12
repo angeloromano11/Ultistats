@@ -19,16 +19,16 @@ const {
 
 router.get('/teams', getTeams);
 router.get('/teams/:teams_id', getTeamsById);
-router.post('/teams', addTeam);
-router.delete('/teams', deleteTeam);
-router.put('/teams/:teams_id', updateTeam);
+router.post('/addteams', addTeam);
+router.delete('/deleteteams', deleteTeam);
+router.put('/updateteams/:teams_id', updateTeam);
 
 //games routes
 router.get('/games', getGames);
 router.get('/games/:game_id', getGameById);
-router.post('/games', addGame);
-router.delete('/games', deleteGame);
-router.put('/games/:game_id', updateGame);
+router.post('/addgames', addGame);
+router.delete('/deletegames/:game_id', deleteGame);
+router.put('/updategames/:game_id', updateGame);
 
 // //player routes
 // router.get('/player', getPlayers);
