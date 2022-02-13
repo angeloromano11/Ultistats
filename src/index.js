@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 
@@ -8,8 +9,8 @@ app.use(express.urlencoded({ extended: false }));
 // routes
 app.use(require('./routes/index'));
 
-app.listen(3000);
-console.log(`server up on port 3000`);
+app.listen(process.env.PORT || 4000);
+console.log(`server up on port ${process.env.PORT}`);
 
 //front
 app.use(express.static('public'));

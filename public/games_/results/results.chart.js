@@ -1,3 +1,19 @@
+const getResults = document.getElementById('getResults');
+
+const gamesURL = 'http://localhost:3000/games';
+
+//corregir para recibir solo los point_#_teams en la chart
+getResults.addEventListener('click', async function () {
+  try {
+    const response = await fetch(gamesURL, { method: 'GET' });
+    const responseT = await response.json();
+    //const response2 = JSON.stringify(responseT);
+    console.log(responseT.point_1_team);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 const ctx = document.getElementById('myChart').getContext('2d');
 const myChart = new Chart(ctx, {
   type: 'line',
