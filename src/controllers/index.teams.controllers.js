@@ -21,11 +21,11 @@ const getTeams = async (req, res) => {
 
 const addTeam = async (req, res) => {
   try {
-    const { teams_name, team_player_number } = req.body;
+    const { teams_name, team_country } = req.body;
     console.log(req.body);
     const response = await pool.query(
-      'INSERT INTO teams(teams_name, team_player_number) VALUES ($1, $2)',
-      [teams_name, team_player_number]
+      'INSERT INTO teams(teams_name, team_country) VALUES ($1, $2)',
+      [teams_name, team_country]
     );
     await res.status(200).json(response.rows);
     console.log(`200 POST sent correctly...`);
@@ -65,13 +65,13 @@ const deleteTeam = async (req, res) => {
 const updateTeam = async (req, res) => {
   try {
     const id = req.params.teams_id;
-    const { teams_name, team_player_number } = req.body;
+    const { teams_name, team_country } = req.body;
     const response = await pool.query(
-      'UPDATE teams SET teams_name = $1, team_player_number = $2 WHERE teams_id = $3',
-      [teams_name, team_player_number, id]
+      'UPDATE teams SET teams_name = $1, team_country = $2 WHERE teams_id = $3',
+      [teams_name, team_country, id]
     );
     console.log(
-      `team ${(teams_name, team_player_number)} has updated deleted succesfully`
+      `team ${(teams_name, team_country)} has updated deleted succesfully`
     );
     await res.status(200).json(response.rows);
   } catch (error) {

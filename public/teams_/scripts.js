@@ -1,33 +1,81 @@
 const getTeamsButton = document.getElementById('getTeamsButton');
-const teamsTable = document.getElementById('teamsTable');
+const teamsTableName = document.getElementById('teamsName');
+const teamsTableCountry = document.getElementById('teamsCountry');
 const teamsName = document.getElementById('tname');
-const teamsNumber = document.getElementById('number');
+const teamCountry = document.getElementById('country');
 const sendButton = document.getElementById('sendButton');
+const teamsTable = document.getElementById('teamsTable');
+const tTable = document.getElementById('tTable');
 
-const TeamsURL = 'http://localhost:3000/teams';
+const baseURL = 'http://localhost:3000';
+const TeamsURL = `${baseURL}/teams`;
+const addTeamURL = `${baseURL}/addteams`;
+const deleteTeamURL = `${baseURL}/deleteteams`;
+
+getTeamsTable();
 
 function teamsData(x, y) {
   const a = x.value;
   const b = y.value;
-  const c = { teams_name: a, team_player_number: b };
-  console.log('numero ', c);
+  const c = { teams_name: a, team_country: b };
+  console.log('team_data ', c);
   return c;
 }
 
+async function refreshTable() {
+  teamsTable.innerHTML = '';
+  tTable.innerHTML = '';
+  await getTeamsTable();
+}
 getTeamsButton.addEventListener('click', async function () {
   try {
-    const response = await fetch(TeamsURL, { method: 'GET' });
-    responseT = await response.json();
-    teamsTable.innerHTML = JSON.stringify(responseT);
+    await refreshTable();
   } catch (error) {
     console.error(error);
   }
 });
 
+async function getTeamsTable() {
+  try {
+    const response = await fetch(TeamsURL, { method: 'GET' });
+    responseT = await response.json();
+    let header = teamsTable.createTHead();
+    let row = header.insertRow();
+    let hIndexCol = row.insertCell(0);
+    let hLeftCol = row.insertCell(1);
+    let hRightCol = row.insertCell(2);
+    let hDelCol = row.insertCell(3);
+    hIndexCol.innerHTML = '#';
+    hLeftCol.innerHTML = 'Team';
+    hRightCol.innerHTML = 'Country';
+    hDelCol.innerHTML = 'Action';
+    for (var i = 0; i < responseT.length; i++) {
+      let row = teamsTable.insertRow();
+      let indexCol = row.insertCell(0);
+      let leftCol = row.insertCell(1);
+      let rightCol = row.insertCell(2);
+      let delCol = row.insertCell(3);
+      const items1 = await JSON.stringify(responseT[i]);
+      const items = await JSON.parse(items1);
+      console.log('items from get getTeamsTable', items);
+      console.log('items name', items.teams_name);
+      console.log('items country', items.team_country);
+      indexCol.innerHTML = `${i}`;
+      leftCol.innerHTML = items.teams_name;
+      rightCol.innerHTML = items.team_country;
+      delCol.innerHTML = 'DELETE';
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 sendButton.addEventListener('click', async function () {
   try {
     //await postData(TeamsURL, dataTeams);
-    await postData(TeamsURL, teamsData(teamsName, teamsNumber));
+    await postData(addTeamURL, teamsData(teamsName, teamCountry));
+    //await getLastValueTable();
+    await refreshTable();
     //console.log('estas mierdads', TeamsURL, dataTeams);
   } catch (error) {
     console.error(error);
