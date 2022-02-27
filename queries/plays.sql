@@ -11,8 +11,8 @@ CREATE TABLE plays (
 	opponent VARCHAR,
     game_point_number INT,
 	player_action VARCHAR,
-	player_position FLOAT,
-	receiver_position FLOAT,
+	player_position POINT,
+	receiver_position POINT,
 	deffensive_player_position FLOAT,
 	pass_type VARCHAR,
 	catch_type VARCHAR,
@@ -26,5 +26,5 @@ CREATE TABLE plays (
 	turnover BOOLEAN,
 	PRIMARY KEY (play_id));
 
-INSERT INTO plays(game_id, teams_id, player_id, game_point_number, player_action,	player_position, pass_type, catch_type, defense_type, pass_distance, assistance, score,	total_score, pass_completed, turnover)
-VALUES ( $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15);
+INSERT INTO plays(game_id, teams_id, player_id, tournamemnt, team, opponent, game_point_number, player_action, player_position, receiver_position, deffensive_player_position, pass_type, catch_type, defense_type, pass_distance, assistance, team_score, opposite_team_score, total_score, pass_completed, turnover)
+VALUES ( $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21);

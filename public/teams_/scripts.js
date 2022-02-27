@@ -7,10 +7,14 @@ const sendButton = document.getElementById('sendButton');
 const teamsTable = document.getElementById('teamsTable');
 const tTable = document.getElementById('tTable');
 
+//HTTP request
+let teamsID = '';
 const baseURL = 'http://localhost:3000';
 const TeamsURL = `${baseURL}/teams`;
+const TeamsByIdURL = `${baseURL}/teams/${teamsID}`;
 const addTeamURL = `${baseURL}/addteams`;
 const deleteTeamURL = `${baseURL}/deleteteams`;
+const updateTeamsByIdURL = `${baseURL}/updateteams/${teamsID}`;
 
 getTeamsTable();
 

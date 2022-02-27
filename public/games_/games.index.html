@@ -39,21 +39,73 @@
     </div>
 
     <div class="split right">
-      <div class="centered">
-        <h2></h2>
-        <p>Some text here too.</p>
-      </div>
-    </div>
-    <div class="results">
-      <h1>Game results.. 🎯</h1>
       <div>
-        <ul>
-          <li>Krakens</li>
-          <br />
-          <li>Sharks</li>
-          <br />
-        </ul>
+        <p>Test tournament entry</p>
       </div>
+      <ul>
+        <li>
+          <h3>Team 1</h3>
+          <select
+            id="selectTeamADropdown"
+            name="TeamA"
+            class="selectTeamDropdown"
+          >
+            <option value="teamA">teams</option>
+          </select>
+          <table id="teamAPlayers">
+            test team players
+            <tr>
+              row
+            </tr>
+          </table>
+        </li>
+        <li>
+          <h3>Team 2</h3>
+          <select
+            id="selectTeamBDropdown"
+            name="TeamB"
+            class="selectTeamDropdown"
+          >
+            <option value="teamB">teams</option>
+          </select>
+          <table id="teamBPlayers">
+            test team players
+            <tr>
+              row
+            </tr>
+          </table>
+        </li>
+        <button id="getPlayersByTeamButton">Get Players</button>
+      </ul>
+      <div>
+        Plays entry
+        <table id="playsInput">
+          <tr>
+            <!-- <td>game_id</td> -->
+            <td>teams_id</td>
+            <td>player_id</td>
+            <td>tournamemnt</td>
+            <td>team</td>
+            <td>opponent</td>
+            <td>game_point_number</td>
+            <td>player_action</td>
+            <td>player_position</td>
+            <td>receiver_position</td>
+            <td>deffensive_player_position</td>
+            <td>pass_type</td>
+            <td>catch_type</td>
+            <td>defense_type</td>
+            <td>pass_distance</td>
+            <td>assistance</td>
+            <td>team_score</td>
+            <td>opposite_team_score</td>
+            <td>total_score</td>
+            <td>pass_completed</td>
+            <td>turnover</td>
+          </tr>
+        </table>
+      </div>
+      <button id="addPlayButton">Add Play</button>
     </div>
   </body>
   <script src="./script.js"></script>

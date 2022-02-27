@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 
+//team routes
 const {
   addTeam,
   getTeams,
@@ -9,6 +10,13 @@ const {
   updateTeam,
 } = require('../controllers/index.teams.controllers');
 
+router.get('/teams', getTeams);
+router.get('/teams/:teams_id', getTeamsById);
+router.post('/addteams', addTeam);
+router.delete('/deleteteams', deleteTeam);
+router.put('/updateteams/:teams_id', updateTeam);
+
+//games routes
 const {
   addGame,
   getGames,
@@ -17,31 +25,42 @@ const {
   updateGame,
 } = require('../controllers/index.games.controllers');
 
-router.get('/teams', getTeams);
-router.get('/teams/:teams_id', getTeamsById);
-router.post('/addteams', addTeam);
-router.delete('/deleteteams', deleteTeam);
-router.put('/updateteams/:teams_id', updateTeam);
-
-//games routes
 router.get('/games', getGames);
 router.get('/games/:game_id', getGameById);
 router.post('/addgames', addGame);
 router.delete('/deletegames/:game_id', deleteGame);
 router.put('/updategames/:game_id', updateGame);
 
-// //player routes
-// router.get('/player', getPlayers);
-// router.get('/player/:game_id', getPlayerById);
-// router.post('/player', addPlayer);
-// router.delete('/player/player_id', deletePlayer);
-// router.put('/player/:player_id', updatePlayer);
+//player routes
+const {
+  getPlayers,
+  getPlayerById,
+  getPlayerByTeam,
+  addPlayer,
+  deletePlayer,
+  updatePlayer,
+} = require('../controllers/index.players.controllers');
 
-// //plays routes
-// router.get('/plays', getpPlays);
-// router.get('/plays/:play_id', getPlayById);
-// router.post('/plays', addPlay);
-// router.delete('/plays/:play_id', deletePlay);
-// router.put('/plays/:play_id', updatePlay);
+router.get('/player', getPlayers);
+router.get('/player/:player_id', getPlayerById);
+router.get('/playerTeam/:teams_id', getPlayerByTeam);
+router.post('/addplayer', addPlayer);
+router.delete('/deleteplayer/player_id', deletePlayer);
+router.put('/updateplayer/:player_id', updatePlayer);
+
+//plays routes
+const {
+  getPlays,
+  getPlayById,
+  addPlay,
+  deletePlay,
+  updatePlay,
+} = require('../controllers/index.plays.controllers');
+
+router.get('/plays', getPlays);
+router.get('/plays/:play_id', getPlayById);
+router.post('/addplays', addPlay);
+router.delete('/deleteplays/:play_id', deletePlay);
+router.put('/updateplays/:play_id', updatePlay);
 
 module.exports = router;
